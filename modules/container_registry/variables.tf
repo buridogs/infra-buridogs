@@ -1,0 +1,20 @@
+variable "name" {
+  type        = string
+  description = "Nome do Container Registry"
+}
+
+variable "resource_group_name" {
+  type        = string
+  description = "Nome do Resource Group"
+}
+
+variable "location" {
+  type        = string
+  description = "Localização do Container Registry"
+}
+
+variable "tags" {
+  type        = map(string)
+  description = "Tags para o Container Registry"
+  default     = {}
+}
