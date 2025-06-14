@@ -5,10 +5,6 @@ resource "azurerm_container_registry" "acr" {
   sku                = "Basic"
   admin_enabled      = true
   tags               = var.tags
-
-  identity {
-    type = "SystemAssigned"
-  }
 }
 
 output "login_server" {

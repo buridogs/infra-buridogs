@@ -10,32 +10,37 @@ variable "resource_group_name" {
 
 variable "location" {
   type        = string
-  description = "Localização do Container App"
+  description = "Azure region location"
 }
 
 variable "image" {
   type        = string
-  description = "Imagem do container"
+  description = "Container image to deploy"
 }
 
-variable "custom_domain" {
+variable "dns_zone_name" {
   type        = string
-  description = "Domínio customizado"
-}
-
-variable "ssl_cert_path" {
-  type        = string
-  description = "Caminho para o certificado SSL"
-}
-
-variable "ssl_cert_password" {
-  type        = string
-  description = "Senha do certificado SSL"
-  sensitive   = true
+  description = "Nome da zona DNS (ex: buridogs.com)"
 }
 
 variable "tags" {
   type        = map(string)
-  description = "Tags para o Container App"
+  description = "Tags para recursos Azure"
   default     = {}
+}
+
+variable "registry_server" {
+  type        = string
+  description = "URL do Azure Container Registry"
+}
+
+variable "registry_username" {
+  type        = string
+  description = "Nome de usuário do Container Registry"
+}
+
+variable "registry_password" {
+  type        = string
+  description = "Senha do Container Registry"
+  sensitive   = true
 }
