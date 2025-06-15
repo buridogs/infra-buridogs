@@ -18,11 +18,6 @@ variable "image" {
   description = "Container image to deploy"
 }
 
-variable "dns_zone_name" {
-  type        = string
-  description = "Nome da zona DNS (ex: buridogs.com)"
-}
-
 variable "tags" {
   type        = map(string)
   description = "Tags para recursos Azure"

@@ -14,7 +14,7 @@ resource "azurerm_container_app" "app" {
   template {
     container {
       name   = "api"
-      image  = var.image
+      image  = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"  # Temporary image. Use var.image after first release
       cpu    = "0.5"
       memory = "1Gi"
 
@@ -46,19 +46,9 @@ resource "azurerm_container_app" "app" {
   }
 
   tags = var.tags
-}
-
-resource "azurerm_container_app_custom_domain" "domain" {
-  container_app_id = azurerm_container_app.app.id
-  name      = "api.${var.dns_zone_name}"
-
-  lifecycle {
-    // When using an Azure created Managed Certificate these values must be added to ignore_changes to prevent resource recreation.
-    ignore_changes = [certificate_binding_type, container_app_environment_certificate_id]
-  }
 
   depends_on = [
-    azurerm_container_app.app
+    azurerm_container_app_environment.env
   ]
 }
 
@@ -68,6 +58,11 @@ output "app_url" {
 }
 
 output "domain_verification_token" {
-  value       = azurerm_container_app_custom_domain.domain
+  value       = azurerm_container_app.app.custom_domain_verification_id
   description = "Token para validação do domínio customizado"
+}
+
+output "id" {
+  value       = azurerm_container_app.app.id
+  description = "ID do Container App"
 }

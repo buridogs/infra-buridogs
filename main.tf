@@ -47,7 +47,6 @@ module "container_app" {
   registry_server     = module.container_registry.login_server
   registry_username   = module.container_registry.admin_username
   registry_password   = module.container_registry.admin_password
-  dns_zone_name       = var.dns_zone_name
   tags               = var.tags
   
   depends_on = [
@@ -59,8 +58,9 @@ module "container_app" {
 module "dns" {
   source                   = "./modules/dns"
   old_resource_group_name  = var.old_resource_group_name
+  container_app_id         = module.container_app.id
   container_app_url        = module.container_app.app_url
-  # domain_validation_token  = module.container_app.domain_verification_token
+  domain_validation_token  = module.container_app.domain_verification_token
   tags                    = var.tags
 
   depends_on = [

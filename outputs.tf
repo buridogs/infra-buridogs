@@ -25,9 +25,3 @@ output "container_app_outbound_ips" {
   value       = module.container_app.app_url
   description = "IP URL do Azure Container App"
 }
-
-output "domain_verification_token" {
-  value       = module.container_app.domain_verification_token
-  description = "Verificação do domínio customizado"
-  sensitive   = false
-}

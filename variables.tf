@@ -37,3 +37,8 @@ variable "dns_zone_name" {
   type        = string
   description = "Nome da zona DNS (ex: buridogs.com)"
 }
+
+variable "domain_verification_token" {
+  type        = string
+  description = "Token de verificação do domínio customizado"
+}
