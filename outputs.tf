@@ -21,7 +21,7 @@ output "container_registry_password" {
   sensitive   = true
 }
 
-output "container_app_outbound_ips" {
-  value       = module.container_app.app_url
-  description = "IP URL do Azure Container App"
+output "static_web_app_url" {
+  value       = module.static_web_app.static_web_app_url
+  description = "URL of the static web app"
 }

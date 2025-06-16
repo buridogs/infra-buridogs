@@ -16,7 +16,7 @@ resource "azurerm_dns_txt_record" "api_validation" {
   name                = "asuid.api"
   zone_name           = data.azurerm_dns_zone.main.name
   resource_group_name = var.old_resource_group_name
-  ttl                = 3600
+  ttl                = 300
   tags               = var.tags
 
   record {

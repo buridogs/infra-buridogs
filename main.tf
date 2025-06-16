@@ -55,6 +55,17 @@ module "container_app" {
   ]
 }
 
+module "static_web_app" {
+  source                   = "./modules/static_web_app"
+  resource_group_name      = module.resource_group.name
+  resource_group_location  = var.location
+  tags                     = var.tags
+
+  depends_on = [
+    module.resource_group
+  ]
+}
+
 module "dns" {
   source                   = "./modules/dns"
   old_resource_group_name  = var.old_resource_group_name

@@ -14,7 +14,7 @@ resource "azurerm_container_app" "app" {
   template {
     container {
       name   = "api"
-      image  = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"  # Temporary image. Use var.image after first release
+      image  = var.image  # Temporary image. Use var.image after first release #mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
       cpu    = "0.5"
       memory = "1Gi"
 
