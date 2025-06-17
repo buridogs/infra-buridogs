@@ -1,5 +1,5 @@
-data "azurerm_dns_zone" "main" {
-  name                = "buridogs.com.br"
+data "azurerm_dns_zone" "main" { 
+  name                = var.dns_zone_name
   resource_group_name = "rg-buridogs"
 }
 

@@ -72,6 +72,7 @@ module "dns" {
   container_app_id         = module.container_app.id
   container_app_url        = module.container_app.app_url
   domain_validation_token  = module.container_app.domain_verification_token
+  dns_zone_name            = var.dns_zone_name
   tags                    = var.tags
 
   depends_on = [

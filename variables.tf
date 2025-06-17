@@ -23,11 +23,6 @@ variable "location" {
   description = "Região Azure"
 }
 
-variable "custom_domain" {
-  type        = string
-  description = "Domínio customizado para a API"
-}
-
 variable "tags" {
   type        = map(string)
   description = "Tags para recursos Azure"
@@ -35,10 +30,5 @@ variable "tags" {
 
 variable "dns_zone_name" {
   type        = string
-  description = "Nome da zona DNS (ex: buridogs.com)"
-}
-
-variable "domain_verification_token" {
-  type        = string
-  description = "Token de verificação do domínio customizado"
+  description = "Nome da zona DNS"
 }

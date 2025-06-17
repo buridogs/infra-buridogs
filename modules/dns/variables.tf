@@ -23,3 +23,8 @@ variable "tags" {
   description = "Tags para recursos Azure"
   default     = {}
 }
+
+variable "dns_zone_name" {
+  type        = string
+  description = "Nome da zona DNS"
+}
