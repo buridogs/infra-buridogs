@@ -22,16 +22,6 @@ resource "azurerm_container_app" "app" {
         name  = "NODE_ENV"
         value = "production"
       }
-
-      env {
-        name  = "CORS_ALLOWED_ORIGINS"
-        value = "https://buridogs.com.br,https://www.buridogs.com.br,https://witty-coast-0a438290f.6.azurestaticapps.net"
-      }
-
-      env {
-        name  = "CORS_ALLOWED_METHODS"
-        value = "GET,POST,PUT,DELETE,PATCH,OPTIONS"
-      }
     }
   }
 

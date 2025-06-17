@@ -79,3 +79,15 @@ module "dns" {
     module.container_app
   ]
 }
+
+module "storage_account" {
+  source              = "./modules/storage_account"
+  storage_account_name = "${var.project_name}${var.environment}sa"
+  resource_group_name  = module.resource_group.name
+  location             = var.location
+  tags                 = var.tags
+
+  depends_on = [
+    module.resource_group
+  ]
+}
