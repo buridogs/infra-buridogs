@@ -53,7 +53,7 @@ resource "azurerm_container_app" "app" {
 }
 
 output "app_url" {
-  value       = azurerm_container_app.app.latest_revision_fqdn
+  value       = azurerm_container_app.app.ingress[0].fqdn
   description = "URL do Container App"
 }
 

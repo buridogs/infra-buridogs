@@ -25,3 +25,9 @@ output "static_web_app_url" {
   value       = module.static_web_app.static_web_app_url
   description = "URL of the static web app"
 }
+
+output "sas_url_query_string" {
+  value       = module.storage_account.sas_url_query_string
+  description = "SAS URL query string for the storage account"
+  sensitive   = true
+}
